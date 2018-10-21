@@ -1,4 +1,7 @@
 package com.sda.kolekcje;
+
+import java.util.Arrays;
+
 // robimy arejlistę
 public class MeinList<T> {
     private int size = 0;
@@ -21,12 +24,28 @@ public class MeinList<T> {
 
     }
 
+    public Object get(int index) {
+        return elements[index];
+    }
+    public int size() {
+        int iloscPozycji = 0;
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] != null) {
+                iloscPozycji++;
+            }
+        }
+        return iloscPozycji;
+    }
+
     void growBigger() {
         Object[] nowaLista = new Object[elements.length *2];
         for (int i = 0; i < elements.length; i++) {
             nowaLista[i] = elements[i];
         }
         elements = nowaLista;
+
+        // metoda 2
+//        elements = Arrays.copyOf(nowaLista, elements.length *2);
 
     }
 }
